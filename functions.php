@@ -3,10 +3,21 @@
 function followandrew_theme_support(){
     // Adds dynamic title tag support
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
 }
 
 add_action('after_setup_theme', 'followandrew_theme_support');
 
+function followandrew_menus(){
+    $locations = array(
+        'primary' => "Desktop Primary Left Sidebar",
+        'footer' => "Footer Menu Items"
+    );
+
+    register_nav_menus($locations);
+}
+
+add_action('init', 'followandrew_menus');
 
 function followandrew_register_styles(){
 
